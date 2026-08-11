@@ -1,0 +1,1 @@
+declare module 'smart_tablev1/EngineerSmartprioritization';

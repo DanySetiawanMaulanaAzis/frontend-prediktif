@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+.dashboard-container {
+    @apply flex h-full flex-col gap-4 p-4;
+}
+
+.dashboard-header {
+    @apply flex h-10 flex-col justify-center;
+}
+
+.dashboard-title h1 {
+    @apply text-2xl font-bold text-gray-800;
+}
+
+.dashboard-row {
+    @apply rounded-lg border border-gray-300 bg-white;
+}
+
+.row-3 {
+    @apply flex-1;
+}
