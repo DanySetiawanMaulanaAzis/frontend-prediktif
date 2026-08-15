@@ -37,7 +37,21 @@ export const routes: Routes = [
       {
         path: 'add-machine',
         component: AddMachine,
-        data: { roles: ['Engineer'] }
+        data: { roles: ['Engineer'] },
+        children: [
+          {
+            path: '', // Akan otomatis tampil di <router-outlet> milik AddMachine
+            loadComponent: () =>
+              import('smart_tablev1/EngineerDetail').then(m => m.EngineerDetail) // Sesuaikan nama class eksak komponen MFE Anda
+          },
+        ]
+      },
+      // 2. Route Halaman Full Detail Mesin (Sejajar dengan add-machine)
+      {
+        path: 'add-machine/:id',
+        data: { roles: ['Engineer'] },
+        loadComponent: () => 
+          import('smart_tablev1/EngineerDetailById').then(m => m.EngineerDetailById)
       }
     ]
   } 
