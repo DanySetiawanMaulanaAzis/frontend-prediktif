@@ -4,6 +4,7 @@ import { Layout } from './components/layouts/layout/layout';
 import { Engineer } from './components/engineer/engineer';    
 import { authGuard } from './guards/auth-guard';
 import { AddMachine } from './components/add-machine/add-machine';
+import { Operator } from './components/operator/operator';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,23 @@ export const routes: Routes = [
               import('smart_tablev1/EngineerSmartprioritization')
                 .then(m => m.EngineerSmartprioritization) // Sesuaikan dengan nama kelas class eksak di remote Anda
                 
+          }
+        ]
+      },
+      {
+        path: 'operator',
+        component: Operator,
+        data: { roles: ['Operator'] },
+        children: [
+          {
+            path: '', // Akan otomatis tampil di <router-outlet> milik Operator
+            loadComponent: () =>
+              import('smart_tablev1/OperatorDashboardSelectedMachine').then(m => m.OperatorDashboardSelectedMachine) // Sesuaikan nama class eksak komponen MFE Anda
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('smart_tablev1/OperatorDashboardById').then(m => m.OperatorDashboardById)
           }
         ]
       },

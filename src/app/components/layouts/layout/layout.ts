@@ -37,6 +37,11 @@ export class Layout implements OnInit {
     return this.authService.getCurrentRole();
   }
 
+  // Pengecekan apakah user adalah Engineer
+  get isEngineer(): boolean {
+    return this.authService.hasRole('Engineer');
+  }
+
   toggleDropdown(): void {
     this.showDropdown = !this.showDropdown;
   }
