@@ -11,6 +11,11 @@
   grid-template-columns: 70px 1fr; /* Lebar Sidebar Saat Minimize */
 }
 
+/* Ketika Sidebar Tidak Ada (misal: Operator) */
+.layout.no-sidebar {
+  grid-template-columns: 1fr;
+}
+
 /* Style Sidebar (Aside) */
 .sidebar {
   background: #1e293b;

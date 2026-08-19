@@ -1,9 +1,11 @@
-<div class="layout" [class.sidebar-collapsed]="isSidebarCollapsed()">
+<div class="layout" [class.sidebar-collapsed]="isSidebarCollapsed()" [class.no-sidebar]="!isEngineer">
+  <!-- Sidebar hanya ditampilkan jika user adalah Engineer -->
+  @if (isEngineer) {
   <!-- Navbar -->
   <aside class="sidebar">
     <div class="sidebar-header">
       <span class="logo-text">PrediktIF</span>
-      
+
       <!-- Tombol Toggle Minimize/Expand -->
       <button type="button" class="btn-toggle" (click)="toggleSidebar()">
         <span class="icon">{{ isSidebarCollapsed() ? '❯' : '❮' }}</span>
@@ -23,6 +25,7 @@
       </a>
     </nav>
   </aside>
+  }
 
   <!-- Right Section -->
   <div class="main-layout">
