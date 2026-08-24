@@ -5,6 +5,7 @@ import { Engineer } from './components/engineer/engineer';
 import { authGuard } from './guards/auth-guard';
 import { AddMachine } from './components/add-machine/add-machine';
 import { Operator } from './components/operator/operator';
+import { Technician } from './components/technician/technician';
 
 export const routes: Routes = [
     {
@@ -36,23 +37,6 @@ export const routes: Routes = [
         ]
       },
       {
-        path: 'operator',
-        component: Operator,
-        data: { roles: ['Operator'] },
-        children: [
-          {
-            path: '', // Akan otomatis tampil di <router-outlet> milik Operator
-            loadComponent: () =>
-              import('smart_tablev1/OperatorDashboardSelectedMachine').then(m => m.OperatorDashboardSelectedMachine) // Sesuaikan nama class eksak komponen MFE Anda
-          },
-          {
-            path: ':id',
-            loadComponent: () =>
-              import('smart_tablev1/OperatorDashboardById').then(m => m.OperatorDashboardById)
-          }
-        ]
-      },
-      {
         path: 'add-machine',
         component: AddMachine,
         data: { roles: ['Engineer'] },
@@ -70,6 +54,40 @@ export const routes: Routes = [
         data: { roles: ['Engineer'] },
         loadComponent: () => 
           import('smart_tablev1/EngineerDetailById').then(m => m.EngineerDetailById)
+      },
+      {
+        path: 'operator',
+        component: Operator,
+        data: { roles: ['Operator'] },
+        children: [
+          {
+            path: '', // Akan otomatis tampil di <router-outlet> milik Operator
+            loadComponent: () =>
+              import('smart_tablev1/OperatorDashboardSelectedMachine').then(m => m.OperatorDashboardSelectedMachine) // Sesuaikan nama class eksak komponen MFE Anda
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('smart_tablev1/OperatorDashboardById').then(m => m.OperatorDashboardById)
+          }
+        ]
+      },
+      {
+        path: 'technician',
+        component: Technician,
+        data: { roles: ['Technician'] },
+        children: [
+          {
+            path: '', // Akan otomatis tampil di <router-outlet> milik Technician
+            loadComponent: () =>
+              import('smart_tablev1/TechnicianDashboard').then(m => m.TechnicianDashboard) // Sesuaikan nama class eksak komponen MFE Anda
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('smart_tablev1/TechnicianDashboardById').then(m => m.TechnicianDashboardById)
+          }
+        ]
       }
     ]
   } 
