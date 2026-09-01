@@ -1,6 +1,5 @@
 @reference "tailwindcss";
 
-
 .dashboard-container {
     @apply flex h-full flex-col gap-4 p-4;
 }
@@ -17,54 +16,9 @@
     @apply mt-1 text-sm text-gray-500;
 }
 
-
-
-.dashboard-overall { 
-    @apply grid h-32 grid-cols-5 gap-4;
- }
-
-.dashboard-summary {
-    @apply flex flex-col rounded-lg border-2 bg-white p-3 shadow-sm transition-all duration-200;
-}
-
-.card-row {
-    @apply flex items-center;
-}
-
-.card-header {
-    @apply h-8 text-sm font-semibold text-gray-500;
-}
-
-.card-body {
-    @apply flex-1 justify-center text-3xl font-bold text-gray-800;
-}
-
-.card-footer {
-    @apply h-8 justify-center text-xs text-gray-400;
-}
-
-.summary-total {
-    @apply border-slate-300;
-}
-
-.summary-critical {
-    @apply border-red-500;
-}
-
-.summary-major {
-    @apply border-orange-500;
-}
-
-.summary-minor {
-    @apply border-yellow-400;
-}
-
-.summary-routine {
-    @apply border-green-500;
-}
-
+/* Hapus bg-white & border di sini */
 .dashboard-row {
-    @apply rounded-lg border border-gray-300 bg-white;
+    @apply flex-1;
 }
 
 .row-3 {
