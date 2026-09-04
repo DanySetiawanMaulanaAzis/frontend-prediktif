@@ -5,12 +5,13 @@ import { Observable } from 'rxjs';
 import { LoginRequest } from '../models/login-request';
 import { LoginResponse } from '../models/login-response';
 import { User } from '../models/User';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    private apiUrl = 'https://localhost:7257/api/users';
+    private apiUrl = `${environment.apiUrl}/users`;
 
     constructor(private http: HttpClient) { }
 
